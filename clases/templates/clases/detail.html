@@ -1,0 +1,32 @@
+
+
+
+
+
+{% extends 'proba1/base.html' %}
+
+
+{% load static %}
+
+{% block content %}
+<span class="align-middle">
+<div class="container">
+<h1 class="text-center mt-5" id="clasedetailtitle">{{ clase.titulo }}</h1>
+
+
+<h5 class="text-center text-muted mb-5">{{ clase.fecha|date:'F jS Y' }}</h5>
+
+  <h5 class="text-center">{{ clase.descripcion|safe }}</h5>
+
+
+ {% if  clase.pdf %}
+ <center>
+    <iframe class="image-center mt-5" src="{{clase.pdf.url}}" style="width:508px; height:400px;" frameborder="0">
+
+    </iframe>
+</center>
+    {% endif %}
+
+</div>
+</span>
+{% endblock %}

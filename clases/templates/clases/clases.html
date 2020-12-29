@@ -1,0 +1,38 @@
+
+
+
+{% extends 'proba1/base.html' %}
+
+{% block content %}
+
+
+<h1 id="blogtitle" class="font-weight-bold text-center">Clases</h1>
+
+{% for clase in clases %}
+<div class="row justify-content-center my-3">
+  <div class="col-md-10">
+  <a href="{% url 'clases:detail' clase.id %}"</a>
+ 
+   
+      <h2>{{ clase.titulo }}</h2>
+    </a>
+    
+    <h4>{{ clase.descripcion|striptags|truncatechars:30 }}</h4>
+    <h5 class="text-muted">{{ clase.autor }}|
+    {{ clase.fecha|date:'d, M, Y.'|upper }}</h5>
+    <h5 class="em">Fecha <p>7</p></h5>
+    {% comment %} {% if clase.pdf %}
+        {{clase.pdf}} <br>
+        <embed src="{{clase.pdf.url}}" > <br>
+        <embed src= "{{clase.pdf.url}}" width= "500" height= "375">
+        {{clase.file.get.pdf.url}}
+        <iframe src="{{clase.pdf.url}}" style="width:718px; height:700px;" frameborder="0"></iframe>
+       
+        {{clase.pdf.url}} <br>
+        {{clase.pdf}}
+    {% endif %} {% endcomment %}
+   
+  </div>
+</div>
+{% endfor %}
+{% endblock content %}

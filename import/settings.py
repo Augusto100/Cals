@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'proba1',
     'simple_history',
     'mathfilters',
+    'clases',
 ]
 
 MIDDLEWARE = [
@@ -56,6 +57,7 @@ MIDDLEWARE = [
     'simple_history.middleware.HistoryRequestMiddleware',
 
 ]
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ROOT_URLCONF = 'import.urls'
 
@@ -136,3 +138,4 @@ try:
     from .local_settings import *
 except ImportError:
     print("Producción")
+
