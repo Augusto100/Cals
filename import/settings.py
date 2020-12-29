@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'import_export',
     'import_2',
-    'book',
     'proba1',
     'simple_history',
     'mathfilters',

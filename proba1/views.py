@@ -9,13 +9,14 @@ from .models import Documento
 
 
 
+
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 # Create your views here.
 def home(request):
-    return render(request, 'proba1/home.html')
+    return render(request, 'proba1/password.html')
 
 
 
