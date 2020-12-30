@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'simple_history',
     'mathfilters',
     'clases',
+    'core',
 ]
 
 MIDDLEWARE = [

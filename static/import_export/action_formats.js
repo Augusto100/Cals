@@ -20,3 +20,8 @@
     $actionsSelect.change();
   });
 })(django.jQuery);
+
+
+<script>   
+$('.collapse').collapse()
+</script>

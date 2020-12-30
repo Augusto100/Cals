@@ -4,35 +4,38 @@
 {% extends 'proba1/base.html' %}
 
 {% block content %}
-
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
 
 <h1 id="blogtitle" class="font-weight-bold text-center">Clases</h1>
 
 {% for clase in clases %}
-<div class="row justify-content-center my-3">
-  <div class="col-md-10">
-  <a href="{% url 'clases:detail' clase.id %}"</a>
- 
-   
-      <h2>{{ clase.titulo }}</h2>
-    </a>
-    
-    <h4>{{ clase.descripcion|striptags|truncatechars:30 }}</h4>
-    <h5 class="text-muted">{{ clase.autor }}|
-    {{ clase.fecha|date:'d, M, Y.'|upper }}</h5>
-    <h5 class="em">Fecha <p>7</p></h5>
-    {% comment %} {% if clase.pdf %}
-        {{clase.pdf}} <br>
-        <embed src="{{clase.pdf.url}}" > <br>
-        <embed src= "{{clase.pdf.url}}" width= "500" height= "375">
-        {{clase.file.get.pdf.url}}
-        <iframe src="{{clase.pdf.url}}" style="width:718px; height:700px;" frameborder="0"></iframe>
-       
-        {{clase.pdf.url}} <br>
-        {{clase.pdf}}
-    {% endif %} {% endcomment %}
-   
-  </div>
+<div class="container text-center col d-flex justify-content-center"  >
+   <div class="card border-primary mb-3" style="width: 48rem;">
+        <div class="card-header"><a href="{% url 'clases:detail' clase.id %}"</a>
+             <h2>{{ clase.titulo }}</h2>
+            </a>
+        </div>
+          <div class="card-body ">
+              <h4>Descripción:</h4>
+            <h5 class="card-title">{{ clase.descripcion|striptags|truncatechars:30 }}</h5>
+
+          </div>
+
+        {% if clase.autor == 'Alex' %}
+          <div class="card-footer bg-transparent text-success border-success" style="font-weight:bold"> {{ clase.autor }} | {{ clase.fecha }} </div>
+          {% elif clase.autor == 'Augusto' %}
+            <div class="card-footer bg-transparent text-danger border-success" style="font-weight:bold"> {{ clase.autor }} | {{ clase.fecha }} </div>
+            {% else %}
+             <div class="card-footer bg-white text-info  border-success" style="font-weight:bold"> {{ clase.autor }} | {{ clase.fecha }} </div>
+        {% endif %}
+
+    </div>
 </div>
 {% endfor %}
+
+
+   
+    
+
 {% endblock content %}
